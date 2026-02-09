@@ -47,6 +47,9 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Rider cache/options directory
+.idea/
+
 # Build results on 'Bin' directories
 **/[Bb]in/*
 # Uncomment if you have tasks that rely on *.refresh files to move binaries

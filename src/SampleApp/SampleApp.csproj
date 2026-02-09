@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModuNet.AspNet.Core\ModuNet.AspNet.Core.csproj" />
-    <ProjectReference Include="..\ModuNet.SourceGenerators.Essentials\ModuNet.SourceGenerators.Essentials.csproj" />
-	<ProjectReference Include="..\ModuNet.SourceGenerators\ModuNet.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\ModuNet.AspNet.Extentions\ModuNet.AspNet.Extentions.csproj" />
+    <ProjectReference Include="..\ModuNet.Core\ModuNet.Core.csproj" />
 	<ProjectReference Include="..\SampleModule.Bootstrap\SampleModule.Bootstrap.csproj" />
   </ItemGroup>
 

@@ -1,17 +1,17 @@
+using SampleModule.Application;
 using SampleModule.Bootstrap;
+using ModuNet.AspNet.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddModule<ISampleModule, SampleModule.Bootstrap.SampleModule>(SampleModuleStartup.ConfigureServices);
 
 var services = builder.Services;
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 
-services.AddSampleModule(builder.Configuration);
-
 var app = builder.Build();
-
-//app.MapDefaultEndpoints();
 
 if (app.Environment.IsDevelopment())
 {

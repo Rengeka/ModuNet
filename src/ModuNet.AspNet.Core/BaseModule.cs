@@ -4,11 +4,11 @@ using ModuNet.Core.Interfaces;
 namespace ModuNet.AspNet.Core;
 
 
-public abstract class BaseModule : IModule
+public abstract class BaseModule(IModuleScopeFactory moduleScopeFactory) : IModule
 {
     public async Task<IResponse> ExecuteCommandAsync<TCommand>(TCommand command, CancellationToken cancellationToken)
     {
-        var serviceScope = CreateScope();
+        var serviceScope = moduleScopeFactory.CreateScope();
 
         var commandHandler = serviceScope.ServiceProvider.GetRequiredService<ICommandHandler<TCommand>>();
 
@@ -19,7 +19,7 @@ public abstract class BaseModule : IModule
 
     public async Task<IResponse<TResult>> ExecuteQueryAsync<TQuery, TResult>(TQuery request, CancellationToken cancellationToken)
     {
-        var serviceScope = CreateScope();
+        var serviceScope = moduleScopeFactory.CreateScope();
 
         var queryHandler = serviceScope.ServiceProvider.GetRequiredService<IQueryHandler<TQuery, TResult>>();
 
@@ -27,6 +27,4 @@ public abstract class BaseModule : IModule
 
         return response;
     }
-
-    protected abstract IServiceScope CreateScope();
 }
