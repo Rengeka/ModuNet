@@ -1,0 +1,43 @@
+name: publish to nuget
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    name: build, pack & publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Setup dotnet
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 9.x
+
+      # Publish
+      - name: publish on version change
+        id: publish_nuget
+        uses: brandedoutcast/publish-nuget@v2
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          MODU_NET_CORE: src/ModuNet.Core/ModuNet.Core.csproj
+
+          # Configuration to build and package
+          BUILD_CONFIGURATION: Release
+
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: ModuNet.Core
+
+          # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
+          VERSION_FILE_PATH: Directory.Build.props
+
+          # Regex pattern to extract version info in a capturing group
+          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          NUGET_SOURCE: https://api.nuget.org
