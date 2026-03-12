@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Routing;
 
-namespace SampleApp.Rest;
+namespace ModuNet.AspNet.Rest;
 
 public interface IEndpointGroup
 {

@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.DependencyInjection;
-using ModuNet.AspNet.Extentions;
-using ModuNet.Core.Interfaces;
-using SampleApp.Rest;
+using ModuNet.AspNet.Rest.Extentions;
 using SampleModule.Infrastructure.Rest;
 
 namespace SampleModule.Bootstrap;

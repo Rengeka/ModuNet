@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp.Rest\SampleApp.Rest.csproj" />
+    <ProjectReference Include="..\ModuNet.AspNet.Rest\ModuNet.AspNet.Rest.csproj" />
     <ProjectReference Include="..\SampleModule.Application\SampleModule.Application.csproj" />
   </ItemGroup>
 

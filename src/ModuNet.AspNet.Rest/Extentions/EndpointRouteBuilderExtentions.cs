@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
+using ModuNet.AspNet.Rest.Attributes;
 using System.Reflection;
 
-namespace SampleApp.Rest;
+namespace ModuNet.AspNet.Rest.Extentions;
 
 public static class EndpointRouteBuilderExtensions
 {

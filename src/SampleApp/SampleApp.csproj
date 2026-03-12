@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModuNet.AspNet.Core\ModuNet.AspNet.Core.csproj" />
-    <ProjectReference Include="..\ModuNet.AspNet.Extentions\ModuNet.AspNet.Extentions.csproj" />
     <ProjectReference Include="..\ModuNet.Core\ModuNet.Core.csproj" />
 	<ProjectReference Include="..\SampleModule.Bootstrap\SampleModule.Bootstrap.csproj" />
   </ItemGroup>
