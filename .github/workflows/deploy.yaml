@@ -2,7 +2,8 @@ name: publish to nuget
 on:
   push:
     branches:
-      - main
+      - '**'
+
 jobs:
   publish:
     name: build, pack & publish
@@ -18,14 +19,12 @@ jobs:
 
       # Publish
       - name: publish on version change
+        if: github.ref == 'refs/heads/main'
         id: publish_nuget
         uses: brandedoutcast/publish-nuget@v2
         with:
           # Filepath of the project to be packaged, relative to root of repository
-          MODU_NET_CORE: src/ModuNet.Core/ModuNet.Core.csproj
-
-          # Configuration to build and package
-          BUILD_CONFIGURATION: Release
+          PROJECT_FILE_PATH: src/ModuNet.Core/ModuNet.Core.csproj
 
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: ModuNet.Core
