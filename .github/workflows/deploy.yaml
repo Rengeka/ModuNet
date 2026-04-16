@@ -3,7 +3,7 @@ name: publish to nuget
 on:
   push:
     branches:
-      - '**'
+      - main
 
 jobs:
   publish-core:
@@ -11,63 +11,81 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.x
 
-      - name: publish ModuNet.Core to NuGet
-        if: github.ref == 'refs/heads/main'
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/ModuNet.Core/ModuNet.Core.csproj
-          PACKAGE_NAME: ModuNet.Core
-          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-          NUGET_SOURCE: https://api.nuget.org
+      - name: Restore
+        run: dotnet restore src/ModuNet.Core/ModuNet.Core.csproj
+
+      - name: Build
+        run: dotnet build src/ModuNet.Core/ModuNet.Core.csproj -c Release --no-restore
+
+      - name: Pack
+        run: dotnet pack src/ModuNet.Core/ModuNet.Core.csproj -c Release --no-build -o ./nupkgs
+
+      - name: Push to NuGet
+        run: dotnet nuget push "./nupkgs/*.nupkg" \
+              --api-key ${{ secrets.NUGET_API_KEY }} \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate
 
   publish-aspnet-core:
     name: Publish ModuNet.AspNet.Core
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.x
 
-      - name: publish ModuNet.AspNet.Core to NuGet
-        if: github.ref == 'refs/heads/main'
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj
-          PACKAGE_NAME: ModuNet.AspNet.Core
-          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-          NUGET_SOURCE: https://api.nuget.org
+      - name: Restore
+        run: dotnet restore src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj
+
+      - name: Build
+        run: dotnet build src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj -c Release --no-restore
+
+      - name: Pack
+        run: dotnet pack src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj -c Release --no-build -o ./nupkgs
+
+      - name: Push to NuGet
+        run: dotnet nuget push "./nupkgs/*.nupkg" \
+              --api-key ${{ secrets.NUGET_API_KEY }} \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate
 
   publish-aspnet-rest:
     name: Publish ModuNet.AspNet.Rest
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.x
 
-      - name: publish ModuNet.AspNet.Rest to NuGet
-        if: github.ref == 'refs/heads/main'
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj
-          PACKAGE_NAME: ModuNet.AspNet.Rest
-          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-          NUGET_SOURCE: https://api.nuget.org
+      - name: Restore
+        run: dotnet restore src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj
+
+      - name: Build
+        run: dotnet build src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj -c Release --no-restore
+
+      - name: Pack
+        run: dotnet pack src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj -c Release --no-build -o ./nupkgs
+
+      - name: Push to NuGet
+        run: dotnet nuget push "./nupkgs/*.nupkg" \
+              --api-key ${{ secrets.NUGET_API_KEY }} \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate
