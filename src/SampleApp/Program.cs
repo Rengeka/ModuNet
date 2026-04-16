@@ -1,6 +1,6 @@
+using ModuNet.AspNet.Extentions;
 using SampleModule.Application;
 using SampleModule.Bootstrap;
-using ModuNet.AspNet.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
 

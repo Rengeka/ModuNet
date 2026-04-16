@@ -15,10 +15,10 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 9.x
+          dotnet-version: 10.x
 
-      # Publish
-      - name: publish on version change
+      # Publish ModuNet.Core
+      - name: publish ModuNet.Core to NuGet
         if: github.ref == 'refs/heads/main'
         id: publish_nuget
         uses: brandedoutcast/publish-nuget@v2
@@ -28,6 +28,48 @@ jobs:
 
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: ModuNet.Core
+
+          # Regex pattern to extract version info in a capturing group
+          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          NUGET_SOURCE: https://api.nuget.org
+
+      # Publish ModuNet.AspNet.Core
+      - name: publish ModuNet.AspNet.Core to NuGet
+        if: github.ref == 'refs/heads/main'
+        id: publish_nuget
+        uses: brandedoutcast/publish-nuget@v2
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj
+
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: ModuNet.AspNet.Core
+
+          # Regex pattern to extract version info in a capturing group
+          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          NUGET_SOURCE: https://api.nuget.org
+
+      # Publish ModuNet.AspNet.Rest
+      - name: publish ModuNet.AspNet.Rest to NuGet
+        if: github.ref == 'refs/heads/main'
+        id: publish_nuget
+        uses: brandedoutcast/publish-nuget@v2
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj
+
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: ModuNet.AspNet.Rest
 
           # Regex pattern to extract version info in a capturing group
           VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
