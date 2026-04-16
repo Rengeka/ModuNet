@@ -29,10 +29,11 @@ jobs:
         run: dotnet pack src/ModuNet.Core/ModuNet.Core.csproj -c Release --no-build -o ./nupkgs
 
       - name: Push to NuGet
-        run: dotnet nuget push "./nupkgs/*.nupkg" \
-              --api-key ${{ secrets.NUGET_API_KEY }} \
-              --source https://api.nuget.org/v3/index.json \
-              --skip-duplicate
+        run: |
+          dotnet nuget push "./nupkgs/*.nupkg" \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
 
   publish-aspnet-core:
     name: Publish ModuNet.AspNet.Core
@@ -57,10 +58,11 @@ jobs:
         run: dotnet pack src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj -c Release --no-build -o ./nupkgs
 
       - name: Push to NuGet
-        run: dotnet nuget push "./nupkgs/*.nupkg" \
-              --api-key ${{ secrets.NUGET_API_KEY }} \
-              --source https://api.nuget.org/v3/index.json \
-              --skip-duplicate
+        run: |
+          dotnet nuget push "./nupkgs/*.nupkg" \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
 
   publish-aspnet-rest:
     name: Publish ModuNet.AspNet.Rest
@@ -85,7 +87,8 @@ jobs:
         run: dotnet pack src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj -c Release --no-build -o ./nupkgs
 
       - name: Push to NuGet
-        run: dotnet nuget push "./nupkgs/*.nupkg" \
-              --api-key ${{ secrets.NUGET_API_KEY }} \
-              --source https://api.nuget.org/v3/index.json \
-              --skip-duplicate
+        run: |
+          dotnet nuget push "./nupkgs/*.nupkg" \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
