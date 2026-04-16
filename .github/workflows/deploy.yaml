@@ -20,7 +20,7 @@ jobs:
       # Publish ModuNet.Core
       - name: publish ModuNet.Core to NuGet
         if: github.ref == 'refs/heads/main'
-        id: publish_nuget
+        id: publish_core_nuget
         uses: brandedoutcast/publish-nuget@v2
         with:
           # Filepath of the project to be packaged, relative to root of repository
@@ -41,7 +41,7 @@ jobs:
       # Publish ModuNet.AspNet.Core
       - name: publish ModuNet.AspNet.Core to NuGet
         if: github.ref == 'refs/heads/main'
-        id: publish_nuget
+        id: publish_aspnet_core_nuget
         uses: brandedoutcast/publish-nuget@v2
         with:
           # Filepath of the project to be packaged, relative to root of repository
@@ -62,7 +62,7 @@ jobs:
       # Publish ModuNet.AspNet.Rest
       - name: publish ModuNet.AspNet.Rest to NuGet
         if: github.ref == 'refs/heads/main'
-        id: publish_nuget
+        id: publish_aspnet_rest_nuget
         uses: brandedoutcast/publish-nuget@v2
         with:
           # Filepath of the project to be packaged, relative to root of repository
