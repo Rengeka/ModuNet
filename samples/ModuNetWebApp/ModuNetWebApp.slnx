@@ -1,3 +1,10 @@
 <Solution>
+  <Folder Name="/Modules/" />
+  <Folder Name="/Modules/Weather/">
+    <Project Path="ModuNetWebApp.Weather.Application/ModuNetWebApp.Weather.Application.csproj" />
+    <Project Path="ModuNetWebApp.Weather.Bootstrap/ModuNetWebApp.Weather.Bootstrap.csproj" Id="ea5857e0-dd23-4f28-8f61-9e2200169afc" />
+    <Project Path="ModuNetWebApp.Weather.Domain/ModuNetWebApp.Weather.Domain.csproj" />
+    <Project Path="ModuNetWebApp.Weather.Infrastructure.Rest/ModuNetWebApp.Weather.Infrastructure.Rest.csproj" />
+  </Folder>
   <Project Path="ModuNetWebApp/ModuNetWebApp.csproj" />
 </Solution>

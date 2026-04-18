@@ -1,10 +1,13 @@
+using ModuNet.AspNet.Extentions;
+using ModuNetWebApp.Weather.Application;
+using ModuNetWebApp.Weather.Bootstrap;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.AddModule<IWeatherModule, WeatherModule>(WeatherModuleStartup.ConfigureServices);
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -14,10 +17,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseWeatherModule();
+
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();
