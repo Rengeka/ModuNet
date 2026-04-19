@@ -1,21 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11709.129 insiders
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuNet.Core", "ModuNet.Core\ModuNet.Core.csproj", "{AFBCF8B2-E8C8-436D-A774-3D39B10B51EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuNet.AspNet.Core", "ModuNet.AspNet.Core\ModuNet.AspNet.Core.csproj", "{4543000A-39E5-4B58-B9AC-137728FF52E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{27B1688E-660D-4EF6-B994-B85037E9E7CC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleModule.Infrastructure.Rest", "SampleModule.Infrastructure.Rest\SampleModule.Infrastructure.Rest.csproj", "{002F7CD8-99E9-4276-9E4B-4A463AD348B2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleModule.Bootstrap", "SampleModule.Bootstrap\SampleModule.Bootstrap.csproj", "{CED403BD-7226-488B-9FEF-34A1F11B7B39}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleModule.Application", "SampleModule.Application\SampleModule.Application.csproj", "{5C742F03-2B48-421A-A83D-4489E260F176}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuNet.AspNet.Rest", "ModuNet.AspNet.Rest\ModuNet.AspNet.Rest.csproj", "{DAAFDB00-18E9-43FB-B89B-58F567A6506C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E10B12CC-D0CF-4E5D-BF88-A3BAE5C9B293}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,22 +29,6 @@ Global
 		{4543000A-39E5-4B58-B9AC-137728FF52E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4543000A-39E5-4B58-B9AC-137728FF52E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4543000A-39E5-4B58-B9AC-137728FF52E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{27B1688E-660D-4EF6-B994-B85037E9E7CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27B1688E-660D-4EF6-B994-B85037E9E7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27B1688E-660D-4EF6-B994-B85037E9E7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27B1688E-660D-4EF6-B994-B85037E9E7CC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{002F7CD8-99E9-4276-9E4B-4A463AD348B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{002F7CD8-99E9-4276-9E4B-4A463AD348B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{002F7CD8-99E9-4276-9E4B-4A463AD348B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{002F7CD8-99E9-4276-9E4B-4A463AD348B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CED403BD-7226-488B-9FEF-34A1F11B7B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CED403BD-7226-488B-9FEF-34A1F11B7B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CED403BD-7226-488B-9FEF-34A1F11B7B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CED403BD-7226-488B-9FEF-34A1F11B7B39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C742F03-2B48-421A-A83D-4489E260F176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C742F03-2B48-421A-A83D-4489E260F176}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C742F03-2B48-421A-A83D-4489E260F176}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C742F03-2B48-421A-A83D-4489E260F176}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAAFDB00-18E9-43FB-B89B-58F567A6506C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAAFDB00-18E9-43FB-B89B-58F567A6506C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAAFDB00-18E9-43FB-B89B-58F567A6506C}.Release|Any CPU.ActiveCfg = Release|Any CPU
