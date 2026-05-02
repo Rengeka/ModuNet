@@ -15,7 +15,7 @@ jobs:
           - src/ModuNet.Core/ModuNet.Core.csproj
           - src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj
           - src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj
-          - build/ModuNet.Templates/ModuNet.Templates.csproj
+          - build/ModuNet.Templates.csproj
 
 
     steps:
