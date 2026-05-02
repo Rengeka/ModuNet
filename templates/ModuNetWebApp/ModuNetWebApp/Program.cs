@@ -1,6 +1,6 @@
-using ModuNet.AspNet.Extentions;
 using ModuNetWebApp.Weather.Application;
 using ModuNetWebApp.Weather.Bootstrap;
+using ModuNet.AspNet.Core.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +18,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseWeatherModule();
+app.UseModule(UseWeatherModule.UseServices);
 
 app.UseHttpsRedirection();
 
