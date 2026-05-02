@@ -2,91 +2,39 @@ name: publish to nuget
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
 
 jobs:
-  publish-core:
-    name: Publish ModuNet.Core
+  publish:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    strategy:
+      matrix:
+        project:
+          - src/ModuNet.Core/ModuNet.Core.csproj
+          - src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj
+          - src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj
+          - build/ModuNet.Templates/ModuNet.Templates.csproj
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.x
 
       - name: Restore
-        run: dotnet restore src/ModuNet.Core/ModuNet.Core.csproj
+        run: dotnet restore ${{ matrix.project }}
 
       - name: Build
-        run: dotnet build src/ModuNet.Core/ModuNet.Core.csproj -c Release --no-restore
+        run: dotnet build ${{ matrix.project }} -c Release --no-restore
 
       - name: Pack
-        run: dotnet pack src/ModuNet.Core/ModuNet.Core.csproj -c Release --no-build -o ./nupkgs
+        run: dotnet pack ${{ matrix.project }} -c Release --no-build -o ./nupkgs
 
-      - name: Push to NuGet
-        run: |
-          dotnet nuget push "./nupkgs/*.nupkg" \
-            --api-key ${{ secrets.NUGET_API_KEY }} \
-            --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate
-
-  publish-aspnet-core:
-    name: Publish ModuNet.AspNet.Core
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 10.x
-
-      - name: Restore
-        run: dotnet restore src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj
-
-      - name: Build
-        run: dotnet build src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj -c Release --no-restore
-
-      - name: Pack
-        run: dotnet pack src/ModuNet.AspNet.Core/ModuNet.AspNet.Core.csproj -c Release --no-build -o ./nupkgs
-
-      - name: Push to NuGet
-        run: |
-          dotnet nuget push "./nupkgs/*.nupkg" \
-            --api-key ${{ secrets.NUGET_API_KEY }} \
-            --source https://api.nuget.org/v3/index.json \
-            --skip-duplicate
-
-  publish-aspnet-rest:
-    name: Publish ModuNet.AspNet.Rest
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 10.x
-
-      - name: Restore
-        run: dotnet restore src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj
-
-      - name: Build
-        run: dotnet build src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj -c Release --no-restore
-
-      - name: Pack
-        run: dotnet pack src/ModuNet.AspNet.Rest/ModuNet.AspNet.Rest.csproj -c Release --no-build -o ./nupkgs
-
-      - name: Push to NuGet
+      - name: Push
         run: |
           dotnet nuget push "./nupkgs/*.nupkg" \
             --api-key ${{ secrets.NUGET_API_KEY }} \

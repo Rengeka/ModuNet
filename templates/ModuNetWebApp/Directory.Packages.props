@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="10.1.7" />
+
+    <PackageVersion Include="ModuNet.Core" Version="1.0.1" />
+    <PackageVersion Include="ModuNet.AspNet.Core" Version="1.0.1" />
+    <PackageVersion Include="ModuNet.AspNet.Rest" Version="1.0.1" />
+  </ItemGroup>
+</Project>

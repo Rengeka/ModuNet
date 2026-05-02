@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ModuNet.AspNet.Core" Version="1.0.0" />
-    <PackageReference Include="ModuNet.Core" Version="1.0.0" />
+    <PackageReference Include="ModuNet.AspNet.Core"/>
+    <PackageReference Include="ModuNet.Core"/>
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ModuNet.AspNet.Extentions;
+using ModuNet.AspNet.Core.Extentions;
 using ModuNetWebApp.Weather.Application.Features.GetWeather;
 
 namespace ModuNetWebApp.Weather.Bootstrap
