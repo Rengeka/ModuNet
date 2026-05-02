@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ModuNet.AspNet.Core" Version="1.0.0" />
     <PackageReference Include="ModuNet.Core" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModuNetWebApp.Domain\ModuNetWebApp.Weather.Domain.csproj" />
+    <ProjectReference Include="..\ModuNetWebApp.Weather.Infrastructure.Rest\ModuNetWebApp.Weather.Infrastructure.Rest.csproj" />
+    <ProjectReference Include="..\ModuNetWebApp.Weather.Application\ModuNetWebApp.Weather.Application.csproj" />
   </ItemGroup>
 
 </Project>

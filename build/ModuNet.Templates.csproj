@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+
+    <PackageId>Rengeka.ModuNet.Templates</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Rengeka</Authors>
+    <Description>ModuNet templates</Description>
+
+    <PackageType>Template</PackageType>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\templates\**\*"
+            Exclude="
+              **\bin\**;
+              **\obj\**;
+              **\*.dll;
+              **\*.pdb;
+              **\*.exe;
+              **\*.cache
+            " />
+  </ItemGroup>
+</Project>

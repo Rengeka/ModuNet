@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Rengeka",
+  "classifications": [ "Web", "ASP.NET", "WebAPI" ],
+  "identity": "Rengeka.ModuNet.AspNetCore.WebApp.CSharp",
+  "name": "ModuNet ASP.NET Core Web App Template",
+  "shortName": "modunetweb",
+  "sourceName":"ModuNetWebApp",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}

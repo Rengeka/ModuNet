@@ -18,4 +18,8 @@
 	  <ProjectReference Include="..\ModuNetWebApp.Weather.Application\ModuNetWebApp.Weather.Application.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\ModuNetWebApp.Weather.Domain\ModuNetWebApp.Weather.Domain.csproj" />
+	</ItemGroup>
+
 </Project>
