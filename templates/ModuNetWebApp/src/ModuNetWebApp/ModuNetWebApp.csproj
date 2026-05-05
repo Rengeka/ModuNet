@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
-    <PackageReference Include="ModuNet.Core"/>
-	  <PackageReference Include="Swashbuckle.AspNetCore"/>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="ModuNet.Core" />
+	  <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModuNetWebApp.Weather.Bootstrap\ModuNetWebApp.Weather.Bootstrap.csproj" />
+    <ProjectReference Include="..\modules\weather\ModuNetWebApp.Weather.Bootstrap\ModuNetWebApp.Weather.Bootstrap.csproj" />
   </ItemGroup>
 
 </Project>
